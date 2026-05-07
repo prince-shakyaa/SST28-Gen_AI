@@ -1,6 +1,8 @@
 # NotebookLM Pro — Google NotebookLM Clone
 
-A full-stack RAG (Retrieval-Augmented Generation) application that allows users to upload documents (PDF/TXT) and have grounded conversations with them. Built for Assignment 03.
+### 🚀 Live Project: [https://notebook-lm-pro.vercel.app/](https://notebook-lm-pro.vercel.app/)
+
+A full-stack RAG (Retrieval-Augmented Generation) application that allows users to upload documents (PDF/TXT/MD) and have grounded conversations with them.
 
 ## Features
 - **End-to-End RAG Pipeline**: Ingestion → Chunking → Embedding → Retrieval → Generation.
@@ -13,7 +15,7 @@ A full-stack RAG (Retrieval-Augmented Generation) application that allows users 
 - **Frontend**: Next.js 14, React, Framer Motion, Lucide Icons.
 - **RAG Framework**: LangChain.js.
 - **LLM**: Groq (Llama 3.3 70B Versatile).
-- **Embeddings**: OpenAI `text-embedding-3-small`.
+- **Embeddings**: Local `all-MiniLM-L6-v2` (Zero-cost, local inference).
 - **Styling**: Vanilla CSS with a focus on modern aesthetics.
 
 ## Setup Instructions
