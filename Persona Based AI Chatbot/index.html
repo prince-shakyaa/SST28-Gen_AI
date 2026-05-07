@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chat with Anshuman Singh, Abhimanyu Saxena, and Kshitij Mishra — Scaler & InterviewBit personalities. A persona-based AI chatbot built with real system prompts and Groq API." />
+    <meta name="theme-color" content="#0f0f1a" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+    <title>Scaler Persona Chat — Talk to Anshuman, Abhimanyu & Kshitij</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Background particles -->
+      <div class="bg-particles" aria-hidden="true">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+      </div>
+
+      <!-- Header -->
+      <header class="header" role="banner">
+        <div class="header-inner">
+          <div class="brand">
+            <div class="brand-logo" aria-hidden="true">
+              <span class="brand-icon">⚡</span>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">Scaler Persona Chat</span>
+              <span class="brand-sub">Powered by Groq AI</span>
+            </div>
+          </div>
+          <div class="header-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>Live</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main layout -->
+      <main class="main-layout" role="main">
+        <!-- Sidebar: Persona Switcher -->
+        <aside class="sidebar" role="complementary" aria-label="Persona selection">
+          <div class="sidebar-title">Choose Persona</div>
+
+          <!-- Persona Cards -->
+          <div class="persona-list" role="tablist" aria-label="AI Personas">
+            <button
+              class="persona-card active"
+              id="persona-btn-anshuman"
+              role="tab"
+              aria-selected="true"
+              aria-controls="chat-panel"
+              data-persona="anshuman"
+            >
+              <div class="persona-avatar" style="background: linear-gradient(135deg,#6C63FF,#3ECFCF)" aria-hidden="true">AS</div>
+              <div class="persona-info">
+                <div class="persona-name">Anshuman Singh</div>
+                <div class="persona-role">Co-founder, Scaler</div>
+              </div>
+              <div class="persona-emoji" aria-hidden="true">🚀</div>
+            </button>
+
+            <button
+              class="persona-card"
+              id="persona-btn-abhimanyu"
+              role="tab"
+              aria-selected="false"
+              aria-controls="chat-panel"
+              data-persona="abhimanyu"
+            >
+              <div class="persona-avatar" style="background: linear-gradient(135deg,#F59E0B,#EF4444)" aria-hidden="true">AX</div>
+              <div class="persona-info">
+                <div class="persona-name">Abhimanyu Saxena</div>
+                <div class="persona-role">Co-founder, InterviewBit</div>
+              </div>
+              <div class="persona-emoji" aria-hidden="true">💡</div>
+            </button>
+
+            <button
+              class="persona-card"
+              id="persona-btn-kshitij"
+              role="tab"
+              aria-selected="false"
+              aria-controls="chat-panel"
+              data-persona="kshitij"
+            >
+              <div class="persona-avatar" style="background: linear-gradient(135deg,#10B981,#3B82F6)" aria-hidden="true">KM</div>
+              <div class="persona-info">
+                <div class="persona-name">Kshitij Mishra</div>
+                <div class="persona-role">Head of Instructors, SST</div>
+              </div>
+              <div class="persona-emoji" aria-hidden="true">🧠</div>
+            </button>
+          </div>
+
+          <!-- Active persona info box -->
+          <div class="active-persona-card glass" id="active-persona-info" aria-live="polite">
+            <div class="active-persona-header">
+              <div class="active-avatar" id="active-avatar" style="background: linear-gradient(135deg,#6C63FF,#3ECFCF)" aria-hidden="true">AS</div>
+              <div>
+                <div class="active-name" id="active-name">Anshuman Singh</div>
+                <div class="active-role" id="active-role">Co-founder, Scaler & InterviewBit</div>
+              </div>
+            </div>
+            <div class="active-tagline" id="active-tagline">"Building the online Stanford for engineers"</div>
+          </div>
+
+          <!-- Model info -->
+          <div class="model-badge glass">
+            <span aria-hidden="true">🤖</span>
+            <span>Groq Llama 3 (8B)</span>
+          </div>
+        </aside>
+
+        <!-- Chat Panel -->
+        <section class="chat-panel glass" id="chat-panel" role="tabpanel" aria-label="Chat window">
+          <!-- Chat header -->
+          <div class="chat-header">
+            <div class="chat-persona-info">
+              <div class="chat-avatar" id="chat-avatar" style="background: linear-gradient(135deg,#6C63FF,#3ECFCF)" aria-hidden="true">AS</div>
+              <div>
+                <div class="chat-persona-name" id="chat-persona-name">Anshuman Singh</div>
+                <div class="chat-persona-status">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  <span>Online · Scaler Co-founder</span>
+                </div>
+              </div>
+            </div>
+            <button class="clear-btn" id="clear-chat-btn" aria-label="Clear conversation" title="Clear conversation">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6l-1 14H6L5 6"></path>
+                <path d="M10 11v6M14 11v6"></path>
+                <path d="M9 6V4h6v2"></path>
+              </svg>
+              Clear
+            </button>
+          </div>
+
+          <!-- Messages area -->
+          <div class="messages-area" id="messages-area" role="log" aria-live="polite" aria-label="Chat messages">
+            <!-- Welcome message injected by JS -->
+          </div>
+
+          <!-- Suggestion chips -->
+          <div class="chips-area" id="chips-area" aria-label="Suggested questions">
+            <div class="chips-label">Quick start</div>
+            <div class="chips-list" id="chips-list" role="list">
+              <!-- Chips injected by JS -->
+            </div>
+          </div>
+
+          <!-- Input area -->
+          <div class="input-area">
+            <div class="input-wrapper">
+              <textarea
+                id="user-input"
+                class="chat-input"
+                placeholder="Ask Anshuman anything…"
+                rows="1"
+                aria-label="Message input"
+                aria-multiline="true"
+                maxlength="2000"
+              ></textarea>
+              <button class="send-btn" id="send-btn" aria-label="Send message" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+            <div class="input-footer">
+              <span id="char-count" class="char-count" aria-live="polite">0 / 2000</span>
+              <span class="input-hint">Shift+Enter for new line · Enter to send</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Error toast -->
+      <div class="toast" id="error-toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <span class="toast-icon" aria-hidden="true">⚠️</span>
+        <span id="toast-message">An error occurred. Please try again.</span>
+        <button class="toast-close" id="toast-close-btn" aria-label="Dismiss error">×</button>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

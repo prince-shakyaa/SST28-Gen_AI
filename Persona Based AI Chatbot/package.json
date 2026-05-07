@@ -1,0 +1,18 @@
+{
+  "name": "persona-based-ai-chatbot",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Persona-based AI chatbot featuring Scaler/InterviewBit personalities",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.4"
+  },
+  "dependencies": {
+    "marked": "^12.0.0"
+  }
+}
