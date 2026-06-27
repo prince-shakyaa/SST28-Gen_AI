@@ -1,0 +1,19 @@
+{
+  "name": "website-automation-agent",
+  "version": "2.0.0",
+  "description": "Interactive website automation agent — type any search query or URL, watch it run live",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "demo": "HEADLESS=false SLOW_MO=150 node index.js",
+    "search": "HEADLESS=false SLOW_MO=150 node index.js",
+    "install:browsers": "npx playwright install chromium"
+  },
+  "author": "Prince Shakya",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "groq-sdk": "^1.3.0",
+    "playwright": "^1.44.0"
+  }
+}
